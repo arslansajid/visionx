@@ -1,33 +1,94 @@
-.App {
+/* home styles */
+.homeCoverStyle {
+  width: 100%;
+  height: 45vh;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+}
+
+.coverTextWrapper {
+  padding-top: 40px; 
+  position: absolute;
+  & .subtitle {
+    font-size: 18px;
+    color: white;
+    letter-spacing: 2px;
+    text-align: center;
+    text-transform: capitalize;
+    margin-bottom: 30px;
+  }
+}
+.coverText {
+  color: white;
+  font-weight: bolder;
+  font-size: 45px;
+  letter-spacing: 4px;
   text-align: center;
+  line-height: 1;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+.searchIconDiv {
+  bottom: 25px;
+  z-index: 9;
+  left: 20px;
+  position: absolute;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.selectControl {
+  width: 50vw; 
+  border: 10px solid rgba(255,255,255, 0.7);
+  & .Select-control {
+    height: 42px;
+    border-radius: 2px;
+    border: none;
+    opacity: 1;
+  }
+}
+
+.searchButtonBar {
+  padding: 13.5px 20px;
+  background: #1a8e85;
+  color: white;
+  position: absolute;
+  z-index: 1;
+  right: 6px;
+  top: 160px;
+  font-size: 12px;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+}
+
+.searchButtonText {
+  font-size: 14px;
+  margin: 0px;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media only screen and (max-width: 767px) {
+  .homeCoverStyle {
+    height: 80vh;
+    margin-top: -66px;
   }
-  to {
-    transform: rotate(360deg);
+  .coverTextWrapper {
+    top: 55px;
+    & .subtitle {
+      font-size: 14px;
+    }
+  }
+  .coverText {
+    font-size: 24px;
+  }
+  .searchIconDiv {
+    bottom: 29px;
+    left: 24px;
+  }
+  .selectControl {
+    width: 90vw;
+    /* padding: 20px; */
+    border: 15px solid rgba(255,255,255, 0.7);
+  }
+  .searchButtonBar {
+    display: none;
   }
 }
