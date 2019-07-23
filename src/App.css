@@ -1,3 +1,14 @@
+.btn-primary {
+  color: #fff;
+  background-color: #1a8e85 !important;
+  border-color: #1a8e85 !important;
+}
+
+a {
+  text-decoration: none !important;
+  color: black;
+}
+
 /* home styles */
 .homeCoverStyle {
   width: 100%;
@@ -47,13 +58,14 @@
 }
 
 .searchButtonBar {
-  padding: 13.5px 20px;
+  cursor: pointer;
+  padding: 12.5px 20px;
   background: #1a8e85;
   color: white;
   position: absolute;
   z-index: 1;
-  right: 6px;
-  top: 160px;
+  right: 8px;
+  top: 48px;
   font-size: 12px;
   border-top-right-radius: 2px;
   border-bottom-right-radius: 2px;
@@ -67,7 +79,7 @@
 
 @media only screen and (max-width: 767px) {
   .homeCoverStyle {
-    height: 80vh;
+    height: 50vh;
     margin-top: -66px;
   }
   .coverTextWrapper {
@@ -89,6 +101,35 @@
     border: 15px solid rgba(255,255,255, 0.7);
   }
   .searchButtonBar {
-    display: none;
+    /* display: none; */
+    cursor: pointer;
+    padding: 12px 20px;
+    background: #1a8e85;
+    color: white;
+    position: absolute;
+    z-index: 1;
+    right: 0pc;
+    top: 54px;
+    font-size: 12px;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
   }
+}
+
+.card-image {
+  max-height: 200px;
+}
+
+.card-book-title {
+  white-space: nowrap !important;
+  overflow: hidden !important;
+}
+
+.loader {
+  background: 'red';
+}
+
+.book-data {
+  font-size: 1.25 rem;
+  font-weight: 300;
 }
