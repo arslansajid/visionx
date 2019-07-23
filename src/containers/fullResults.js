@@ -24,7 +24,7 @@ class FullResults extends Component {
     const { activePage } = this.state;
     var searchResult = '';
     let totalResponse = 0;
-    axios.get(`https://www.goodreads.com/search/index.xml?key=DEZZre4OeBQSqC0L3wQQ&q=${this.props.location.searchInput}&page=${activePage}&search[field]=title`)
+    axios.get(`https://www.goodreads.com/search/index.xml?key=DEZZre4OeBQSqC0L3wQQ&q=${this.props.searchInput}&page=${activePage}&search[field]=title`)
     .then((response) => {
       var result = convert.xml2js(response.data, {compact: true});
       searchResult = result.GoodreadsResponse.search.results.work;
@@ -40,9 +40,9 @@ class FullResults extends Component {
 loadItems() {
   console.log('load Item called')
   const { activePage, books } = this.state;
-    var searchResult = '';
+    var searchResult = [];
     let totalResponse = 0;
-    axios.get(`https://www.goodreads.com/search/index.xml?key=DEZZre4OeBQSqC0L3wQQ&q=${this.props.location.searchInput}&page=${activePage}`)
+    axios.get(`https://www.goodreads.com/search/index.xml?key=DEZZre4OeBQSqC0L3wQQ&q=${this.props.searchInput}&page=${activePage}`)
     .then((response) => {
       var result = convert.xml2js(response.data, {compact: true});
       searchResult = result.GoodreadsResponse.search.results.work;
@@ -67,7 +67,7 @@ loadItems() {
           routeName={this.props.location.pathname}
         />
         <div className="col">
-            <h5>Showing results for: {this.props.location.searchInput}</h5>
+            <h5>Showing results for: {this.props.searchInput}</h5>
         </div>
         <div className="container">
         <div className="row justify-content-center">
@@ -110,14 +110,12 @@ loadItems() {
 }
 
 FullResults.propTypes = {
-  totalAdultCount: PropTypes.number,
-  totalChildrenCount: PropTypes.number,
+  searchInput: PropTypes.string,
 };
 
 function mapStateToProps(state) {
   return {
-    totalAdultCount: state.personCount.adultValue,
-    totalChildrenCount: state.personCount.childrenValue,
+    searchInput: state.searchInput,
   };
 }
 

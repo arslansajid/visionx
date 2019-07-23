@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import AsyncSelect from 'react-select/async';
 import { components } from 'react-select';
-import { setAdultValue } from '../actions/PersonActions';
+import { setSearchInput } from '../actions/SearchInput';
 import axios from 'axios';
 import convert from 'xml-js';
 
@@ -73,18 +73,13 @@ class Home extends Component {
     this.handleInputChange = this.handleInputChange.bind(this);
   }
 
-  handleAdult = () => {
-    this.setState({totalAdultCount: this.state.totalAdultCount + 1},
-      () => {
-        this.props.dispatch(setAdultValue(this.state.totalAdultCount));
-    })
-  }
-
   async handleInputChange (newValue) {
     var searchResult = '';
     let totalResponse = 0;
     const inputValue = newValue.replace(/\W/g, '');
-    this.setState({ inputValue });
+    this.setState({ inputValue }, () => {
+      this.props.dispatch(setSearchInput(this.state.inputValue));
+    });
     await axios.get(`https://www.goodreads.com/search/index.xml?key=DEZZre4OeBQSqC0L3wQQ&q=${inputValue}&search[field]=title`)
     .then((response) => {
       var result = convert.xml2js(response.data, {compact: true});

@@ -14,6 +14,7 @@ import configureRoomData from './ConfigureRoomDataReducer';
 import paymentBreakDown from './PaymentBreakDown';
 import globalLoading from './GlobalLoadingReducer';
 import bookings from './BookingsReducer';
+import searchInput from './SearchInputReducer';
 
 const rootReducer = combineReducers({
   hotels,
@@ -31,6 +32,7 @@ const rootReducer = combineReducers({
   paymentBreakDown,
   globalLoading,
   bookings,
+  searchInput
 });
 
 export default rootReducer;

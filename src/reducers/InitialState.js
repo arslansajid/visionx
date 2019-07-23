@@ -36,4 +36,5 @@ export default {
     globalLoading: true,
     bookingValues: [],
     bookingKeys: [],
+    searchInput: '',
   };

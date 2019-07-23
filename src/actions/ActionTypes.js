@@ -1,6 +1,9 @@
 export const FETCH_HOTELS = 'FETCH_HOTEL';
 export const RECEIVE_HOTELS = 'RECEIVE_HOTELS';
 
+//search input
+export const SET_SEARCH_INPUT = 'SET_SEARCH_INPUT';
+
 //personCount
 export const SET_ADULT_VALUE = 'SET_ADULT_VALUE';
 export const SET_CHILDREN_VALUE = 'SET_CHILDREN_VALUE';
