@@ -17,15 +17,15 @@ export default function setConfigureRoomData(state = {}, action) {
         return nextState;
 
       case REMOVE_CONFIGURE_ROOM_DATA:
-        var currentStatePair = state;
-        var incomingPair = action.payload.pair;
-        var incomingKeyName = Object.keys(incomingPair)[0];
+        currentStatePair = state;
+        incomingPair = action.payload.pair;
+        incomingKeyName = Object.keys(incomingPair)[0];
         if(!currentStatePair[incomingKeyName]) {
           currentStatePair[incomingKeyName] = [{}];
         }
         currentStatePair[incomingKeyName].pop();
 
-        var nextState = Object.assign({}, currentStatePair);
+        nextState = Object.assign({}, currentStatePair);
         return nextState;
 
       case RESET_STORE:
