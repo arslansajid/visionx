@@ -32,7 +32,6 @@ const Option = props => {
       <Link to={{ pathname: `/detail/${props.value.id}`, data: props.data }}>
         <div>{props.label}</div>
         <div>{props.value.author}</div>
-        {/* <components.Option {...props} /> */}
       </Link>
       </div>
     </React.Fragment>
@@ -69,32 +68,6 @@ class Home extends Component {
     };
     this.handleInputChange = this.handleInputChange.bind(this);
   }
-
-  // async handleInputChange (newValue) {
-  //   var searchResult = '';
-  //   let totalResponse = 0;
-  //   const inputValue = newValue.replace(/\W/g, '');
-  //   this.setState({ inputValue }, () => {
-  //     // this.props.dispatch(setSearchInput(this.state.inputValue));
-  //   });
-  //   await axios.get(`https://www.goodreads.com/search/index.xml?key=DEZZre4OeBQSqC0L3wQQ&q=${inputValue}`)
-  //   .then((response) => {
-  //     var result = convert.xml2js(response.data, {compact: true});
-  //     searchResult = result.GoodreadsResponse.search.results.work.slice(0,5);
-  //     totalResponse = result.GoodreadsResponse.search['total-results']._text;
-  //     this.setState({
-  //       searchOptions: searchResult || [],
-  //       totalResults: totalResponse,
-  //     })
-  //     return searchResult;
-  //   })
-  //   searchResult && searchResult.length && searchResult.map((option, index) => {
-  //     option.label = option.best_book.title._text;
-  //     option.value = {name: option.best_book.title._text, author: option.best_book.author.name._text, id: option.best_book.id._text, totalOptions: this.state.totalResults, searchInput: newValue };
-  //     return option;
-  //   })
-  //   return searchResult;
-  // };
 
   async handleInputChange (newValue) {
     var searchResult = '';
