@@ -1,5 +1,5 @@
 import { SET_SEARCH_INPUT, RESULTS_FETCHED, INFINITE_SCROLL_RESULTS_FETCHED, REVIEWS_FETCHED } from '../actions/ActionTypes';
-import {combineReducers} from 'redux';
+import { combineReducers } from 'redux';
 
 export function searchedInput(state = '', action) {
     switch (action.type) {
