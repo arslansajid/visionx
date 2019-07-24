@@ -7,6 +7,9 @@ You need to set up a proxy server to test this project or you can start chrome w
 Here is the command for chrome on mac:<br>
 open -n -a /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --user-data-dir="/tmp/chrome_dev_test" --disable-web-security
 
+### `DEMO`
+Project root has a demo folder which contains working video of the application.
+
 ## Available Scripts
 
 In the project directory, you can run:
