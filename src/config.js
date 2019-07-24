@@ -1,0 +1,1 @@
+export const CLIENT_KEY = 'DEZZre4OeBQSqC0L3wQQ';

@@ -1,6 +1,7 @@
 import * as types from './ActionTypes';
 import axios from 'axios';
 import convert from 'xml-js';
+import { CLIENT_KEY } from '../config';
 
 export function setSearchInput(value) {
   return {type: types.SET_SEARCH_INPUT, payload: value };
@@ -9,7 +10,7 @@ export function setSearchInput(value) {
 export function fetchBooks(searchTerm, page) {
   return (dispatch, getState) => {
     // var inputValue = getState().searchInput;
-    return axios.get(`https://www.goodreads.com/search/index.xml?key=DEZZre4OeBQSqC0L3wQQ&q=${searchTerm}&page=${page}`)
+    return axios.get(`https://www.goodreads.com/search/index.xml?key=${CLIENT_KEY}&q=${searchTerm}&page=${page}`)
     .then((response) => {
       var result = convert.xml2js(response.data, {compact: true});
       var searchResult = result.GoodreadsResponse.search.results.work;
@@ -23,7 +24,7 @@ export function fetchBooks(searchTerm, page) {
 
 export function fetchBookData(bookId) {
   return (dispatch, getState) => {
-    return axios.get(`https://www.goodreads.com/book/show.xml?key=DEZZre4OeBQSqC0L3wQQ&id=${bookId}`)
+    return axios.get(`https://www.goodreads.com/book/show.xml?key=${CLIENT_KEY}&id=${bookId}`)
     .then((response) => {
       var result = convert.xml2js(response.data, {compact: true});
       var bookDataResult = result.GoodreadsResponse.book;
@@ -37,7 +38,7 @@ export function fetchBookData(bookId) {
 
 export function fetchBookReviews(authorName, bookTitle) {
   return (dispatch, getState) => {
-    return axios.get(`https://www.goodreads.com/book/title.xml?author=${authorName}&key=DEZZre4OeBQSqC0L3wQQ&title=${bookTitle}`)
+    return axios.get(`https://www.goodreads.com/book/title.xml?author=${authorName}&key=${CLIENT_KEY}&title=${bookTitle}`)
     .then((response) => {
       var result = convert.xml2js(response.data, {compact: true});
       var reviewResult = result.GoodreadsResponse;
@@ -51,7 +52,7 @@ export function fetchBookReviews(authorName, bookTitle) {
 
 export function fetchBookByKeyWord(keyword) {
   return (dispatch) => {
-    return axios.get(`https://www.goodreads.com/search/index.xml?key=DEZZre4OeBQSqC0L3wQQ&q=${keyword}`)
+    return axios.get(`https://www.goodreads.com/search/index.xml?key=${CLIENT_KEY}&q=${keyword}`)
     .then((response) => {
       var result = convert.xml2js(response.data, {compact: true});
       console.log('action result', result);
