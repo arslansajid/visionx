@@ -2,9 +2,10 @@
 
 ## Important Note 
 
-The Goodreads Api used in this project does not allow cross-origin-resource-sharing.
-You need to set up a proxy server to test this project or you can start chrome with cors disabled.
-Here is the command for chrome on mac: open -n -a /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --user-data-dir="/tmp/chrome_dev_test" --disable-web-security
+The Goodreads Api used in this project does not allow cross-origin-resource-sharing.<br>
+You need to set up a proxy server to test this project or you can start chrome with cors disabled.<br>
+Here is the command for chrome on mac:<br>
+open -n -a /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --user-data-dir="/tmp/chrome_dev_test" --disable-web-security
 
 ## Available Scripts
 
