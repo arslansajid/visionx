@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import BreadCrumbs from '../components/breadcrumbs';
+import BreadCrumbs from '../components/Breadcrumbs';
 import StarRatingComponent from 'react-star-rating-component';
-import axios from 'axios';
-import convert from 'xml-js';
+import { fetchBookData, fetchBookReviews } from '../actions/Actions';
+import {connect} from 'react-redux';
+import PropTypes from 'prop-types';
 
 class Detail extends Component {
   constructor(props) {
@@ -22,28 +23,16 @@ class Detail extends Component {
 
   fetchBookDataAndReviews = () => {
     const { location } = this.props;
-    var bookDataResult = '';
-    var reviewResult = '';
-    // var totalResponse = 0;
-    axios.get(`https://www.goodreads.com/book/show.xml?key=DEZZre4OeBQSqC0L3wQQ&id=${location.data.best_book.id._text}`)
-    .then((response) => {
-      var result = convert.xml2js(response.data, {compact: true});
-      console.log('book data result', result);
-      bookDataResult = result.GoodreadsResponse.book;
+    this.props.dispatch(fetchBookData(location.data.best_book.id._text))
+    .then((res) => {
       this.setState({
-        bookData: bookDataResult
+        bookData: this.props.results
       })
     })
-    axios.get(`https://www.goodreads.com/book/title.xml?author=${location.data.best_book.author.name._text}&key=DEZZre4OeBQSqC0L3wQQ&title=${location.data.best_book.title._text}`)
-    .then((response) => {
-      var result = convert.xml2js(response.data, {compact: true});
-      console.log('result of reviews', result);
-      reviewResult = result.GoodreadsResponse;
-      console.log('REVIEWS RESULT', reviewResult);
-      // totalResponse = result.GoodreadsResponse.search['total-results']._text;
+    this.props.dispatch(fetchBookReviews(location.data.best_book.author.name._text, location.data.best_book.title._text))
+    .then((res) => {
       this.setState({
-        totalReviews: reviewResult || [],
-        // totalResults: totalResponse,
+        totalReviews: this.props.reviews
       })
     })
   }
@@ -51,7 +40,8 @@ class Detail extends Component {
   render() {
     const { bookData } = this.state;
     console.log('Props', this.props.location.data);
-    console.log('bookData', this.state.bookData)
+    console.log('bookData', this.state.bookData);
+    console.log('totalReviews', this.state.totalReviews);
     if(this.props.location.data) {
       return (
         <div className="container my-3">
@@ -98,4 +88,17 @@ class Detail extends Component {
   }
 }
 
-export default Detail;
+Detail.propTypes = {
+  searchInput: PropTypes.string,
+};
+
+function mapStateToProps(state) {
+  return {
+    searchInput: state.searchInput.searchedInput,
+    results: state.searchInput.results,
+    reviews: state.searchInput.reviews,
+  };
+}
+
+export default connect(mapStateToProps)(Detail);
+

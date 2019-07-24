@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
-import BreadCumbs from '../components/breadcrumbs'; 
-import BookTile from '../components/bookTile';
+import BreadCumbs from '../components/Breadcrumbs'; 
+import BookTile from '../components/BookTile';
 import axios from 'axios';
 import convert from 'xml-js';
 import InfiniteScroll from 'react-infinite-scroller';
