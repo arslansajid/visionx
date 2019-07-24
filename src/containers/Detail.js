@@ -39,9 +39,9 @@ class Detail extends Component {
 
   render() {
     const { bookData } = this.state;
-    // console.log('Props', this.props.location.data);
-    // console.log('bookData', this.state.bookData);
-    // console.log('totalReviews', this.state.totalReviews);
+    console.log('Props', this.props.location.data);
+    console.log('bookData', this.state.bookData);
+    console.log('totalReviews', this.state.totalReviews);
     if(this.props.location.data) {
       return (
         <div className="container my-3">
@@ -68,6 +68,15 @@ class Detail extends Component {
                 <h5>Publisher: <span className="book-data">{bookData.publisher._text ? bookData.publisher._text : 'Data currently not available...'}</span></h5>
                 <h5>Num of pages: <span className="book-data">{bookData.num_pages._cdata ? bookData.num_pages._cdata : 'Data currently not available...'}</span></h5>
                 <h5>Published on: <span className="book-data">{bookData.publication_day._text ? `${bookData.publication_day._text}-${bookData.publication_month._text}-${bookData.publication_year._text}` : 'Data currently not available...'}</span></h5>
+              </div>
+            </div>
+            <hr />
+            <div className="row my-3">
+              <div className="col">
+                <h3>Reviews</h3>
+                <h5>Ratings Count: <span className="book-data">{bookData.work.ratings_count ? bookData.work.ratings_count._text : 'Data currently not available...'}</span></h5>
+                <h5>Ratings Sum: <span className="book-data">{bookData.work.ratings_sum ? bookData.work.ratings_sum._text : 'Data currently not available...'}</span></h5>
+                <h5>Reviews Count: <span className="book-data">{bookData.work.reviews_count ? bookData.work.reviews_count._text : 'Data currently not available...'}</span></h5>
               </div>
             </div>
           </div>
