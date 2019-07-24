@@ -126,7 +126,9 @@ a {
 }
 
 .loader {
-  background: 'red';
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .book-data {
