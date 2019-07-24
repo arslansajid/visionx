@@ -1,9 +1,9 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
-import Home from './containers/home';
-import Detail from './containers/detail';
-import FullResults from './containers/fullResults'
+import Home from './containers/Home';
+import Detail from './containers/Detail';
+import FullResults from './containers/FullResults'
 
 
 const MainRouter = () => (
