@@ -21,32 +21,28 @@ class FullResults extends Component {
   }
 
 loadItems() {
-  console.log('load Item called', CLIENT_KEY);
   const { activePage, books, totalResults } = this.state;
     var searchResult = [];
     let totalResponse = 0;
-    // if(totalResults-1 !== books.length ) {
-      if(totalResults-1 !== books.length ) {
-    axios.get(`https://www.goodreads.com/search/index.xml?key=${CLIENT_KEY}&q=${this.props.match.params.q}&page=${activePage}`)
-    .then((response) => {
-      var result = convert.xml2js(response.data, {compact: true});
-      searchResult = result.GoodreadsResponse.search.results.work;
-      totalResponse = result.GoodreadsResponse.search['total-results']._text;
-      this.setState({
-        books: searchResult ? [...books, ...searchResult] : this.state.books ,
-        totalResults: totalResponse,
-        activePage: activePage + 1,
-      }, () => {
+    if(totalResults-1 !== books.length ) {
+      axios.get(`https://www.goodreads.com/search/index.xml?key=${CLIENT_KEY}&q=${this.props.match.params.q}&page=${activePage}`)
+      .then((response) => {
+        var result = convert.xml2js(response.data, {compact: true});
+        searchResult = result.GoodreadsResponse.search.results.work;
+        totalResponse = result.GoodreadsResponse.search['total-results']._text;
         this.setState({
-          hasMoreItems: totalResponse > books.length ? true : false
+          books: searchResult ? [...books, ...searchResult] : this.state.books ,
+          totalResults: totalResponse,
+          activePage: activePage + 1,
+          }, () => {
+            this.setState({
+              hasMoreItems: totalResponse > books.length ? true : false
+            })
+          })
         })
-      })
-    })
-  } else {
-    this.setState({
-      hasMoreItems: false
-    })
-  }
+      } else {
+      this.setState({ hasMoreItems: false })
+    }
 }
 
   render() {
