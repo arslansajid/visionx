@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/visionx/static/css/main.3b59c189.chunk.css",
+    "main.js": "/visionx/static/js/main.8114aece.chunk.js",
+    "main.js.map": "/visionx/static/js/main.8114aece.chunk.js.map",
+    "runtime~main.js": "/visionx/static/js/runtime~main.18a40293.js",
+    "runtime~main.js.map": "/visionx/static/js/runtime~main.18a40293.js.map",
+    "static/css/2.38281306.chunk.css": "/visionx/static/css/2.38281306.chunk.css",
+    "static/js/2.daf1000d.chunk.js": "/visionx/static/js/2.daf1000d.chunk.js",
+    "static/js/2.daf1000d.chunk.js.map": "/visionx/static/js/2.daf1000d.chunk.js.map",
+    "index.html": "/visionx/index.html",
+    "precache-manifest.2f66aa8085212b012c38acf71fd9ed14.js": "/visionx/precache-manifest.2f66aa8085212b012c38acf71fd9ed14.js",
+    "service-worker.js": "/visionx/service-worker.js",
+    "static/css/2.38281306.chunk.css.map": "/visionx/static/css/2.38281306.chunk.css.map",
+    "static/css/main.3b59c189.chunk.css.map": "/visionx/static/css/main.3b59c189.chunk.css.map",
+    "static/media/library.jpg": "/visionx/static/media/library.9eeccb7a.jpg"
+  }
+}
